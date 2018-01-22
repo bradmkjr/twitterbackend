@@ -38,9 +38,22 @@ app.get('/', function(req, res) {
 });
 
 app.get('/followers/list', function(req, res) {
-	res.writeHead(200, {'Content-Type': 'text/html'}); 
+	// res.writeHead(200, {'Content-Type': 'text/html'}); 
 
-	const screen_name = 'Amazon'
+	// Website you wish to allow to connect
+    res.setHeader('Access-Control-Allow-Origin', '*');
+
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+    // Request headers you wish to allow
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+    // Set to true if you need the website to include cookies in the requests sent
+    // to the API (e.g. in case you use sessions)
+    res.setHeader('Access-Control-Allow-Credentials', true);
+
+	const screen_name = 'Amazon';
 	
 	const T = new Twit( {
 	  consumer_key: process.env.twitter_consumer_key,
