@@ -50,7 +50,7 @@ app.get('/followers/list', function(req, res) {
 	} );
 
 	const command = 'followers/list';
-	const options = { "screen_name": screen_name, "include_entities": false, count: 5 };	
+	const options = { "screen_name": screen_name, "include_entities": false, "count": 5, "skip_status": 1 };	
 
 	T.get( command, options,  function (error, data, response) {
 							      					            
@@ -64,5 +64,6 @@ app.get('/followers/list', function(req, res) {
 					res.end(data);
 				}
 				
-			}); 
+	}); 
+	
 }); // end followers/list
