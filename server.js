@@ -107,7 +107,7 @@ app.get('/friends/list', function(req, res) {
 	  access_token_secret: process.env.twitter_access_token_secret
 	} );
 
-	const command = 'followers/list';
+	const command = 'friends/list';
 	const options = { "screen_name": screen_name, "include_entities": false, "count": 5, "skip_status": 1 };	
 
 	T.get( command, options,  function (error, data, response) {
