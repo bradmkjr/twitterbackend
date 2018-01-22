@@ -127,7 +127,7 @@ app.get('/friends/list', function(req, res) {
 }); // end friends/list
 
 
-app.get('/user/show', function(req, res) {
+app.get('/users/show', function(req, res) {
 	// res.writeHead(200, {'Content-Type': 'text/html'}); 
 
 	// Website you wish to allow to connect
@@ -152,7 +152,7 @@ app.get('/user/show', function(req, res) {
 	  access_token_secret: process.env.twitter_access_token_secret
 	} );
 
-	const command = 'user/show';
+	const command = 'users/show';
 	const options = { "screen_name": screen_name, "include_entities": false, "count": 5, "skip_status": 1 };	
 
 	T.get( command, options,  function (error, data, response) {
@@ -169,4 +169,4 @@ app.get('/user/show', function(req, res) {
 				
 	}); 
 
-}); // end user/show
+}); // end users/show
