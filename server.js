@@ -61,9 +61,9 @@ app.get('/followers/list', function(req, res) {
 			   
 			    }else{
 					// console.log(data);
-					res.end(data);
+					res.end( JSON.stringify(data) );
 				}
 				
 	}); 
-	
+
 }); // end followers/list
