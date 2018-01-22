@@ -33,6 +33,6 @@ app.listen(app.get('port'), function() {
 app.get('/', function(req, res) {
 	res.writeHead(403, {'Content-Type': 'text/html'}); 
 	
-	res.send('Go AWay')
+	res.end('Go AWay')
 	
 });
