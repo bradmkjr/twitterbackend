@@ -33,6 +33,36 @@ app.listen(app.get('port'), function() {
 app.get('/', function(req, res) {
 	res.writeHead(403, {'Content-Type': 'text/html'}); 
 	
-	res.end('Go AWay')
+	res.end('Go Away')
 	
 });
+
+app.get('/followers/list', function(req, res) {
+	res.writeHead(200, {'Content-Type': 'text/html'}); 
+
+	const screen_name = 'Amazon'
+	
+	const T = new Twit( {
+	  consumer_key: process.env.twitter_consumer_key,
+	  consumer_secret: process.env.twitter_consumer_secret,
+	  access_token: process.env.twitter_access_token,
+	  access_token_secret: process.env.twitter_access_token_secret
+	} );
+
+	const command = 'followers/list';
+	const options = { "screen_name": screen_name, "include_entities": false, count: 5 };	
+
+	T.get( command, options,  function (error, data, response) {
+							      					            
+			    if(error != undefined || response.statusCode != 200 ){
+					console.log("Something went wrong!");
+					console.log(error);
+					console.log(response.statusCode);			
+			   
+			    }else{
+					// console.log(data);
+					res.end(data);
+				}
+				
+			}); 
+}); // end followers/list
