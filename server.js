@@ -37,7 +37,7 @@ app.get('/', function(req, res) {
 	
 });
 
-app.get('/followers/list', function(req, res) {
+app.get('/followers/list/:handle', function(req, res) {
 	// res.writeHead(200, {'Content-Type': 'text/html'}); 
 
 	// Website you wish to allow to connect
@@ -53,7 +53,7 @@ app.get('/followers/list', function(req, res) {
     // to the API (e.g. in case you use sessions)
     res.setHeader('Access-Control-Allow-Credentials', true);
 
-	const screen_name = 'Amazon';
+	const screen_name = req.params.handle;
 	
 	const T = new Twit( {
 	  consumer_key: process.env.twitter_consumer_key,
@@ -82,7 +82,7 @@ app.get('/followers/list', function(req, res) {
 }); // end followers/list
 
 
-app.get('/friends/list', function(req, res) {
+app.get('/friends/list/:handle', function(req, res) {
 	// res.writeHead(200, {'Content-Type': 'text/html'}); 
 
 	// Website you wish to allow to connect
@@ -98,7 +98,7 @@ app.get('/friends/list', function(req, res) {
     // to the API (e.g. in case you use sessions)
     res.setHeader('Access-Control-Allow-Credentials', true);
 
-	const screen_name = 'Amazon';
+	const screen_name = req.params.handle;
 	
 	const T = new Twit( {
 	  consumer_key: process.env.twitter_consumer_key,
@@ -127,7 +127,7 @@ app.get('/friends/list', function(req, res) {
 }); // end friends/list
 
 
-app.get('/users/show', function(req, res) {
+app.get('/users/show/:handle', function(req, res) {
 	// res.writeHead(200, {'Content-Type': 'text/html'}); 
 
 	// Website you wish to allow to connect
@@ -143,7 +143,7 @@ app.get('/users/show', function(req, res) {
     // to the API (e.g. in case you use sessions)
     res.setHeader('Access-Control-Allow-Credentials', true);
 
-	const screen_name = 'Amazon';
+	const screen_name = req.params.handle;
 	
 	const T = new Twit( {
 	  consumer_key: process.env.twitter_consumer_key,
